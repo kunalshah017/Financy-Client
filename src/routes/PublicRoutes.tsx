@@ -1,20 +1,15 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { Register } from "../pages/Register";
 
 const PublicRoutes = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            children: [
-                {
-                    index: true,
-                    element: <Register />  // Or another component for home page
-                },
-                {
-                    path: "register",
-                    element: <Register />
-                }
-            ]
+            element: <Navigate to="/register" replace />
+        },
+        {
+            path: "/register",
+            element: <Register />
         }
     ]);
 
